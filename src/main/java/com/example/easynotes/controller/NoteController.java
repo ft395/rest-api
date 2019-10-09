@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-/**
- * Created by rajeevkumarsingh on 27/06/17.
- */
 @RestController
 @RequestMapping("/api")
 public class NoteController {
@@ -38,7 +35,7 @@ public class NoteController {
 
     @PutMapping("/notes/{id}")
     public Note updateNote(@PathVariable(value = "id") Long noteId,
-                                           @Valid @RequestBody Note noteDetails) {
+                           @Valid @RequestBody Note noteDetails) {
 
         Note note = noteRepository.findById(noteId)
                 .orElseThrow(() -> new ResourceNotFoundException("Note", "id", noteId));
